@@ -4,8 +4,8 @@ class MyMiddlewareOPTIONS:
 
     def __call__(self, request):
         response = self.options_response(request)
-        response['Access-Control-Allow-Origin'] = "*"
-        response['Access-Control-Allow-Methods'] = "*"
+        response['Access-Control-Allow-Origin'] = "localhost:3000, 84.201.154.32:8000, example.com"
+        response['Access-Control-Allow-Methods'] = "GET, POST, OPTIONS, PUT, DELETE"
         response['Access-Control-Allow-Headers'] = "*"
         return response
     
@@ -18,7 +18,7 @@ class MyMiddlewareGET:
 
     def __call__(self, request):
         response = self.get_response(request)
-        response['Access-Control-Allow-Origin'] = "*"
-        response['Access-Control-Allow-Methods'] = "*"
+        response['Access-Control-Allow-Origin'] = "localhost:3000, 84.201.154.32:8000, example.com"
+        response['Access-Control-Allow-Methods'] = "GET, POST, OPTIONS, PUT, DELETE"
         response['Access-Control-Allow-Headers'] = "*"
         return response
