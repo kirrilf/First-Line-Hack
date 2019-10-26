@@ -36,7 +36,7 @@ class HealthView(APIView):
         return Response({"success": "health '{}' created successfully".format(health_saved.id)})
 
 
-class HealthViewDelete(APIView):
+class HealthDone(APIView):
 
     def delete(self, request, pk):
     # Get object with this pk
@@ -47,6 +47,15 @@ class HealthViewDelete(APIView):
         obj.save()
         return Response({"message": "healthе with id `{}` has been deleted.".format(pk)}, status=204)
   
+class HealthDelete(APIView):
+
+    def delete(self, request, pk):
+    # Get object with this pk
+        health = get_object_or_404(ToDoHealth.objects.all(), pk=pk)
+        health.delete()
+        return Response({"message": "healthе with id `{}` has been deleted.".format(pk)}, status=204)
+
+
 class RelationshipsView(APIView):
     def get(self, request):
         obj = ToDoRelationships.objects.all()
@@ -63,7 +72,7 @@ class RelationshipsView(APIView):
             relationships_saved = serializer.save()
         return Response({"success": "relationships '{}' created successfully".format(relationships_saved.id)})
 
-class RelationshipsViewDelete(APIView):
+class RelationshipsDone(APIView):
     
     def delete(self, request, pk):
     # Get object with this pk
@@ -74,6 +83,17 @@ class RelationshipsViewDelete(APIView):
         obj.relationships = obj.relationships+1
         obj.save()
         return Response({"message": "relationships with id `{}` has been deleted.".format(pk)}, status=204)
+
+class RelationshipsDelete(APIView):
+    
+    def delete(self, request, pk):
+    # Get object with this pk
+        relationships = get_object_or_404(ToDoRelationships.objects.all(), pk=pk)
+        relationships.delete()
+
+        
+        return Response({"message": "relationships with id `{}` has been deleted.".format(pk)}, status=204)
+
 
 
 class EnvironmentView(APIView):
@@ -93,7 +113,7 @@ class EnvironmentView(APIView):
             environment_saved = serializer.save()
         return Response({"success": "environment '{}' created successfully".format(environment_saved.id)})
 
-class EnvironmentViewDelete(APIView):
+class EnvironmentDone(APIView):
     
     def delete(self, request, pk):
     # Get object with this pk
@@ -103,6 +123,15 @@ class EnvironmentViewDelete(APIView):
         obj = Wheel.objects.get(id=1)
         obj.environment = obj.environment+1
         obj.save()
+
+        return Response({"message": "environment with id `{}` has been deleted.".format(pk)}, status=204)
+
+class EnvironmentDelete(APIView):
+    
+    def delete(self, request, pk):
+    # Get object with this pk
+        environment = get_object_or_404(ToDoEnvironment.objects.all(), pk=pk)
+        environment.delete()
 
         return Response({"message": "environment with id `{}` has been deleted.".format(pk)}, status=204)
 
@@ -124,7 +153,7 @@ class VocationView(APIView):
         return Response({"success": "vocation '{}' created successfully".format(vocation_saved.id)})
 
 
-class VocationViewDelete(APIView):
+class VocationDone(APIView):
     
     def delete(self, request, pk):
     # Get object with this pk
@@ -136,6 +165,17 @@ class VocationViewDelete(APIView):
         obj.save()
 
         return Response({"message": "vocation with id `{}` has been deleted.".format(pk)}, status=204)
+
+class VocationDelete(APIView):
+    
+    def delete(self, request, pk):
+    # Get object with this pk
+        vocation = get_object_or_404(ToDoVocation.objects.all(), pk=pk)
+        vocation.delete()
+
+
+        return Response({"message": "vocation with id `{}` has been deleted.".format(pk)}, status=204)
+
 
 
 
@@ -156,7 +196,7 @@ class ProsperityView(APIView):
             prosperity_saved = serializer.save()
         return Response({"success": "rosperity '{}' created successfully".format(prosperity_saved.id)})
 
-class ProsperityViewDelete(APIView):
+class ProsperityDone(APIView):
     
     def delete(self, request, pk):
     # Get object with this pk
@@ -166,6 +206,14 @@ class ProsperityViewDelete(APIView):
         obj.prosperity = obj.prosperity+1
         obj.save()
 
+        return Response({"message": "prosperity with id `{}` has been deleted.".format(pk)}, status=204)
+
+class ProsperityDelete(APIView):
+    
+    def delete(self, request, pk):
+    # Get object with this pk
+        prosperity = get_object_or_404(ToDoProsperity.objects.all(), pk=pk)
+        prosperity.delete()
         return Response({"message": "prosperity with id `{}` has been deleted.".format(pk)}, status=204)
 
 
@@ -186,7 +234,7 @@ class SelfImprovementView(APIView):
             selfImprovement_saved = serializer.save()
         return Response({"success": "selfImprovement '{}' created successfully".format(selfImprovement_saved.id)})
 
-class SelfImprovementViewDelete(APIView):
+class SelfImprovementDone(APIView):
     
     def delete(self, request, pk):
     # Get object with this pk
@@ -196,6 +244,16 @@ class SelfImprovementViewDelete(APIView):
         obj = Wheel.objects.get(id=1)
         obj.selfImprovement = obj.selfImprovement+1
         obj.save()
+        return Response({"message": "selfImprovement with id `{}` has been deleted.".format(pk)}, status=204)
+
+class SelfImprovementDelete(APIView):
+    
+    def delete(self, request, pk):
+    # Get object with this pk
+        selfImprovement= get_object_or_404(ToDoSelfImprovement.objects.all(), pk=pk)
+        selfImprovement.delete()
+
+       
         return Response({"message": "selfImprovement with id `{}` has been deleted.".format(pk)}, status=204)
 
 
@@ -217,7 +275,7 @@ class BrightnessOfLifeView(APIView):
             brightnessOfLife_saved = serializer.save()
         return Response({"success": "brightnessOfLife '{}' created successfully".format(brightnessOfLife_saved.id)})
 
-class BrightnessOfLifeViewDelete(APIView):
+class BrightnessOfLifeDone(APIView):
     
     def delete(self, request, pk):
     # Get object with this pk
@@ -226,6 +284,14 @@ class BrightnessOfLifeViewDelete(APIView):
         obj = Wheel.objects.get(id=1)
         obj.brightnessOfLife= obj.brightnessOfLife+1
         obj.save()
+        return Response({"message": "brightnessOfLife with id `{}` has been deleted.".format(pk)}, status=204)
+
+class BrightnessOfLifeDelete(APIView):
+    
+    def delete(self, request, pk):
+    # Get object with this pk
+        brightnessOfLife = get_object_or_404(ToDoBrightnessOfLife.objects.all(), pk=pk)
+        brightnessOfLife.delete()
         return Response({"message": "brightnessOfLife with id `{}` has been deleted.".format(pk)}, status=204)
 
 
@@ -246,7 +312,7 @@ class SpiritualityView(APIView):
             spirituality_saved = serializer.save()
         return Response({"success": "Health '{}' created successfully".format(spirituality_saved.id)})
 
-class SpiritualityViewDelete(APIView):
+class SpiritualityDone(APIView):
     
     def delete(self, request, pk):
     # Get object with this pk
@@ -256,4 +322,13 @@ class SpiritualityViewDelete(APIView):
         obj = Wheel.objects.get(id=1)
         obj.spirituality= obj.spirituality+1
         obj.save()
+        return Response({"message": "spirituality with id `{}` has been deleted.".format(pk)}, status=204)
+
+class SpiritualityDelete(APIView):
+    
+    def delete(self, request, pk):
+    # Get object with this pk
+        spirituality = get_object_or_404(ToDoSpirituality.objects.all(), pk=pk)
+        spirituality.delete()
+
         return Response({"message": "spirituality with id `{}` has been deleted.".format(pk)}, status=204)
