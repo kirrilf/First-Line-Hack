@@ -10,7 +10,7 @@ class WheelView(APIView):
 
         serializer = WheelSerializer(wheel, many=True)
        
-        return Response({"wheel": serializer.data})
+        return Response(serializer.data)
     
 '''class SubparagraphsView(APIView):
      def get(self, request):
