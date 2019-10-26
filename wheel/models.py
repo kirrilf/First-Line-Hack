@@ -8,12 +8,17 @@ class Author(models.Model):
         return self.name
 
 class Wheel(models.Model):
-    health = models.IntegerField()
-    relationships = models.IntegerField()
-    environment = models.IntegerField()
-    vocation = models.IntegerField()
-    prosperity = models.IntegerField()
-    selfImprovement = models.IntegerField()
-    brightnessOfLife = models.IntegerField()
-    spirituality = models.IntegerField()
-    author = models.ForeignKey('Author', related_name='wheel', on_delete=models.CASCADE)
+  health = models.IntegerField()
+  relationships = models.IntegerField()
+  environment = models.IntegerField()
+  vocation = models.IntegerField()
+  prosperity = models.IntegerField()
+  selfImprovement = models.IntegerField()
+  brightnessOfLife = models.IntegerField()
+  spirituality = models.IntegerField()
+  author = models.ForeignKey('Author', related_name='wheel', on_delete=models.CASCADE)
+
+class Subparagraphs(models.Model):
+  category = models.ForeignKey("Wheel", related_name='subparagraphs', on_delete=models.CASCADE)
+  subparagraphs = models.CharField(max_length=150, unique=True, blank = True)
+  

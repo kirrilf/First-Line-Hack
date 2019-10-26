@@ -9,5 +9,19 @@ class WheelView(APIView):
         wheel = Wheel.objects.all()
 
         serializer = WheelSerializer(wheel, many=True)
-        return Response({"wheel": serializer.data}, response)
+       
+        return Response({"wheel": serializer.data})
     
+'''class SubparagraphsView(APIView):
+     def get(self, request):
+        wheel = Wheel.objects.filter()
+
+        serializer = WheelSerializer(wheel, many=True)
+
+        return Response({"wheel": serializer.data})
+    
+    if searchQuery:
+            obj = self.model.objects.filter(Q(title__icontains=searchQuery) | Q(body__icontains=searchQuery))
+        else:
+            obj = self.model.objects.all()'''
+        
