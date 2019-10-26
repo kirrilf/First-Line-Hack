@@ -14,7 +14,7 @@ class WheelView(APIView):
     
 class HealthView(APIView):
     
-     def get(self, request):
+    def get(self, request):
 
         #obj = Health.objects.all().prefetch_related('many_set')
         #one_objs = One.objects.all().prefetch_related('many_set')
@@ -22,6 +22,17 @@ class HealthView(APIView):
         serializer = ToDoHealthSerializer(obj, many=True)
 
         return Response({"Health": serializer.data})
+    
+
+    def post(self, request):
+        health = request.data.get('health')
+        # Create an article from the above data
+        serializer = ToDoHealthSerializer(data=health)
+
+        if serializer.is_valid(raise_exception=True):
+            health_saved = serializer.save()
+        return Response({"success": "health '{}' created successfully".format(health_saved.id)})
+
     
   
 class RelationshipsView(APIView):
@@ -31,6 +42,15 @@ class RelationshipsView(APIView):
                 
         return Response({"Relationships": serializer.data})
 
+    def post(self, request):
+        relationships = request.data.get('relationships')
+        # Create an article from the above data
+        serializer = ToDoRelationshipsSerializer(data=relationships)
+
+        if serializer.is_valid(raise_exception=True):
+            relationships_saved = serializer.save()
+        return Response({"success": "relationships '{}' created successfully".format(relationships_saved.id)})
+
 class EnvironmentView(APIView):
     def get(self, request):
 
@@ -38,6 +58,15 @@ class EnvironmentView(APIView):
         serializer = ToDoEnvironmentSerializer(obj, many=True)
 
         return Response({"Environment": serializer.data})
+
+    def post(self, request):
+        environment = request.data.get('environment')
+        # Create an article from the above data
+        serializer = ToDoEnvironmentSerializer(data=environment)
+
+        if serializer.is_valid(raise_exception=True):
+            environment_saved = serializer.save()
+        return Response({"success": "environment '{}' created successfully".format(environment_saved.id)})
 
 
 class VocationView(APIView):
@@ -47,12 +76,30 @@ class VocationView(APIView):
 
         return Response({"Vocation": serializer.data})
 
+    def post(self, request):
+        vocation = request.data.get('vocation')
+        # Create an article from the above data
+        serializer = ToDoVocationSerializer(data=vocation)
+
+        if serializer.is_valid(raise_exception=True):
+            vocation_saved = serializer.save()
+        return Response({"success": "vocation '{}' created successfully".format(vocation_saved.id)})
+
 class ProsperityView(APIView):
     def get(self, request):
         obj = ToDoProsperity.objects.all()
         serializer = ToDoProsperitySerializer(obj, many=True)
 
         return Response({"Prosperity": serializer.data})
+
+    def post(self, request):
+        prosperity = request.data.get('prosperity')
+        # Create an article from the above data
+        serializer = ToDoProsperitySerializer(data=prosperity)
+
+        if serializer.is_valid(raise_exception=True):
+            prosperity_saved = serializer.save()
+        return Response({"success": "rosperity '{}' created successfully".format(prosperity_saved.id)})
 
 class SelfImprovementView(APIView):
     def get(self, request):
@@ -61,6 +108,15 @@ class SelfImprovementView(APIView):
 
         return Response({"SelfImprovement": serializer.data})
 
+    def post(self, request):
+        selfImprovement = request.data.get('selfImprovement')
+        # Create an article from the above data
+        serializer = ToDoSelfImprovementSerializer(data=selfImprovement)
+
+        if serializer.is_valid(raise_exception=True):
+            selfImprovement_saved = serializer.save()
+        return Response({"success": "selfImprovement '{}' created successfully".format(selfImprovement_saved.id)})
+
 class BrightnessOfLifeView(APIView):
     def get(self, request):
         obj = ToDoBrightnessOfLife.objects.all()
@@ -68,9 +124,28 @@ class BrightnessOfLifeView(APIView):
 
         return Response({"BrightnessOfLife": serializer.data})
 
+    def post(self, request):
+        brightnessOfLife = request.data.get('brightnessOfLife')
+        # Create an article from the above data
+        serializer = ToDoBrightnessOfLifeSerializer(data=brightnessOfLife)
+
+        if serializer.is_valid(raise_exception=True):
+            brightnessOfLife_saved = serializer.save()
+        return Response({"success": "brightnessOfLife '{}' created successfully".format(brightnessOfLife_saved.id)})
+
+
 class SpiritualityView(APIView):
     def get(self, request): 
         obj = ToDoSpirituality.objects.all()
         serializer = ToDoSpiritualitySerializer(obj, many=True)
 
         return Response({"Spirituality": serializer.data})
+
+    def post(self, request):
+        spirituality = request.data.get('spirituality')
+        # Create an article from the above data
+        serializer = ToDoSpiritualitySerializer(data=spirituality)
+
+        if serializer.is_valid(raise_exception=True):
+            spirituality_saved = serializer.save()
+        return Response({"success": "Health '{}' created successfully".format(spirituality_saved.id)})
