@@ -9,4 +9,5 @@ class WheelView(APIView):
         wheel = Wheel.objects.all()
 
         serializer = WheelSerializer(wheel, many=True)
-        return Response({"wheel": serializer.data})
+        return Response({"wheel": serializer.data}, response)
+    
