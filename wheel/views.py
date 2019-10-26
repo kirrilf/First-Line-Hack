@@ -20,13 +20,14 @@ class HealthView(APIView):
         #obj = Health.objects.all().prefetch_related('many_set')
         #one_objs = One.objects.all().prefetch_related('many_set')
         obj = ToDoHealth.objects.all()
-        serializer = ToDoHealthSerializer(obj, many=True)
+        serializer = ToDoHealthSerializerId(obj, many=True)
 
-        return Response({"Health": serializer.data})
+        return Response({"health": serializer.data})
     
 
     def post(self, request):
         health = request.data.get('health')
+        print(request.data)
         # Create an article from the above data
         serializer = ToDoHealthSerializer(data=health)
 
@@ -45,9 +46,9 @@ class HealthViewDelete(APIView):
 class RelationshipsView(APIView):
     def get(self, request):
         obj = ToDoRelationships.objects.all()
-        serializer = ToDoRelationshipsSerializer(obj, many=True)
+        serializer = ToDoRelationshipsSerializerId(obj, many=True)
                 
-        return Response({"Relationships": serializer.data})
+        return Response({"relationships": serializer.data})
 
     def post(self, request):
         relationships = request.data.get('relationships')
@@ -71,9 +72,9 @@ class EnvironmentView(APIView):
     def get(self, request):
 
         obj = ToDoEnvironment.objects.all()
-        serializer = ToDoEnvironmentSerializer(obj, many=True)
+        serializer = ToDoEnvironmentSerializerId(obj, many=True)
 
-        return Response({"Environment": serializer.data})
+        return Response({"environment": serializer.data})
 
     def post(self, request):
         environment = request.data.get('environment')
@@ -96,9 +97,9 @@ class EnvironmentViewDelete(APIView):
 class VocationView(APIView):
     def get(self, request):
         obj = ToDoVocation.objects.all()
-        serializer = ToDoVocationSerializer(obj, many=True)
+        serializer = ToDoVocationSerializerId(obj, many=True)
 
-        return Response({"Vocation": serializer.data})
+        return Response({"vocation": serializer.data})
 
     def post(self, request):
         vocation = request.data.get('vocation')
@@ -123,9 +124,9 @@ class VocationViewDelete(APIView):
 class ProsperityView(APIView):
     def get(self, request):
         obj = ToDoProsperity.objects.all()
-        serializer = ToDoProsperitySerializer(obj, many=True)
+        serializer = ToDoProsperitySerializerId(obj, many=True)
 
-        return Response({"Prosperity": serializer.data})
+        return Response({"prosperity": serializer.data})
 
     def post(self, request):
         prosperity = request.data.get('prosperity')
@@ -149,9 +150,9 @@ class ProsperityViewDelete(APIView):
 class SelfImprovementView(APIView):
     def get(self, request):
         obj = ToDoSelfImprovement.objects.all()
-        serializer = ToDoSelfImprovementSerializer(obj, many=True)
+        serializer = ToDoSelfImprovementSerializerId(obj, many=True)
 
-        return Response({"SelfImprovement": serializer.data})
+        return Response({"selfImprovement": serializer.data})
 
     def post(self, request):
         selfImprovement = request.data.get('selfImprovement')
@@ -176,9 +177,9 @@ class SelfImprovementViewDelete(APIView):
 class BrightnessOfLifeView(APIView):
     def get(self, request):
         obj = ToDoBrightnessOfLife.objects.all()
-        serializer = ToDoBrightnessOfLifeSerializer(obj, many=True)
+        serializer = ToDoBrightnessOfLifeSerializerId(obj, many=True)
 
-        return Response({"BrightnessOfLife": serializer.data})
+        return Response({"brightnessOfLife": serializer.data})
 
     def post(self, request):
         brightnessOfLife = request.data.get('brightnessOfLife')
@@ -202,9 +203,9 @@ class BrightnessOfLifeViewDelete(APIView):
 class SpiritualityView(APIView):
     def get(self, request): 
         obj = ToDoSpirituality.objects.all()
-        serializer = ToDoSpiritualitySerializer(obj, many=True)
+        serializer = ToDoSpiritualitySerializerId(obj, many=True)
 
-        return Response({"Spirituality": serializer.data})
+        return Response({"spirituality": serializer.data})
 
     def post(self, request):
         spirituality = request.data.get('spirituality')
@@ -221,4 +222,4 @@ class SpiritualityViewDelete(APIView):
     # Get object with this pk
         spirituality = get_object_or_404(ToDoSpirituality.objects.all(), pk=pk)
         spirituality.delete()
-        return Response({"message": "Spirituality with id `{}` has been deleted.".format(pk)}, status=204)
+        return Response({"message": "spirituality with id `{}` has been deleted.".format(pk)}, status=204)
