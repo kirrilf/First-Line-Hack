@@ -18,67 +18,36 @@ class Wheel(models.Model):
   spirituality = models.IntegerField()
   author = models.ForeignKey('Author', related_name='wheel', on_delete=models.CASCADE)
 
-class Health(models.Model):
-  points = models.IntegerField()
-  
-class Relationships(models.Model):
-  points = models.IntegerField()
-
-class Environment(models.Model):
-  points = models.IntegerField()
-
-class Vocation(models.Model):
-  points = models.IntegerField()
-
-class Prosperity(models.Model):
-  points = models.IntegerField()
-
-class SelfImprovement(models.Model):
-  points = models.IntegerField()
-
-class BrightnessOfLife(models.Model):
-  points = models.IntegerField()
-
-class Spirituality(models.Model):
-  points = models.IntegerField()
 
 
+class ToDoHealth(models.Model):
+  toDo = models.CharField(max_length=150, blank = True)
 
-class SubParagraphsHealth(models.Model):
-  category = models.ForeignKey("Health", related_name='subparagraphsHealth', on_delete=models.CASCADE)
-  subparagraphs = models.CharField(max_length=150, blank = True)
-
-class SubParagraphsRelationships(models.Model):
-  category = models.ForeignKey("Relationships", related_name='subparagraphsRelationships', on_delete=models.CASCADE)
-  subparagraphs = models.CharField(max_length=150, blank = True)
+class ToDoRelationships(models.Model):
+  toDo = models.CharField(max_length=150, blank = True)
 
 
-class SubparagraphsEnvironment(models.Model):
-  category = models.ForeignKey("Environment", related_name='subparagraphsEnvironment', on_delete=models.CASCADE)
-  subparagraphs = models.CharField(max_length=150, blank = True)
-
-class SubparagraphsVocation(models.Model):
-  category = models.ForeignKey("Vocation", related_name='subparagraphsVocation', on_delete=models.CASCADE)
-  subparagraphs = models.CharField(max_length=150, blank = True)
+class ToDoEnvironment(models.Model):
+  toDo = models.CharField(max_length=150, blank = True)
 
 
-class SubparagraphsProsperity(models.Model):
-  category = models.ForeignKey("Prosperity", related_name='subparagraphsProsperity', on_delete=models.CASCADE)
-  subparagraphs = models.CharField(max_length=150, blank = True)
+class ToDoVocation(models.Model):
+  toDo = models.CharField(max_length=150, blank = True)
 
 
-class SubparagraphsSelfImprovement(models.Model):
-  category = models.ForeignKey("SelfImprovement", related_name='subparagraphsSelfImprovement', on_delete=models.CASCADE)
-  subparagraphs = models.CharField(max_length=150, blank = True)
+class ToDoProsperity(models.Model):
+  toDo = models.CharField(max_length=150, blank = True)
 
 
-class SubparagraphsBrightnessOfLife(models.Model):
-  category = models.ForeignKey("BrightnessOfLife", related_name='subparagraphsBrightnessOfLife', on_delete=models.CASCADE)
-  subparagraphs = models.CharField(max_length=150, blank = True)
+class ToDoSelfImprovement(models.Model):
+  toDo = models.CharField(max_length=150, blank = True)
 
 
-class SubparagraphsSpirituality(models.Model):
-  category = models.ForeignKey("Spirituality", related_name='subparagraphsSpirituality', on_delete=models.CASCADE)
-  subparagraphs = models.CharField(max_length=150, blank = True)
+class ToDoBrightnessOfLife(models.Model):
+  toDo = models.CharField(max_length=150, blank = True)
+
+
+class ToDoSpirituality(models.Model):
+  toDo = models.CharField(max_length=150, blank = True)
 
 
