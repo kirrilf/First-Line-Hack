@@ -17,65 +17,80 @@ class WheelSerializer(serializers.Serializer):
 
 class ToDoHealthSerializer(serializers.Serializer):
   toDo = serializers.CharField(max_length=150)
-  #id = serializers.IntegerField()
+  timePub = serializers.IntegerField()
+  timeEnd = serializers.IntegerField()
 
   def create(self, validated_data):
     return ToDoHealth.objects.create(**validated_data)
 
 class ToDoHealthSerializerId(serializers.Serializer):
   toDo = serializers.CharField(max_length=150)
+  timePub = serializers.IntegerField()
+  timeEnd = serializers.IntegerField()
   id = serializers.IntegerField()
 
   
 
 class ToDoRelationshipsSerializer(serializers.Serializer):
   toDo = serializers.CharField(max_length=150)
-  #id = serializers.IntegerField()
+  timePub = serializers.IntegerField()
+  timeEnd = serializers.IntegerField()
 
   def create(self, validated_data):
     return ToDoRelationships.objects.create(**validated_data)
 
 class ToDoRelationshipsSerializerId(serializers.Serializer):
   toDo = serializers.CharField(max_length=150)
+  timePub = serializers.IntegerField()
+  timeEnd = serializers.IntegerField()
   id = serializers.IntegerField()
 
 
 
 class ToDoEnvironmentSerializer(serializers.Serializer):
   toDo = serializers.CharField(max_length=150)
-  #id = serializers.IntegerField()
+  timePub = serializers.IntegerField()
+  timeEnd = serializers.IntegerField()
 
   def create(self, validated_data):
     return ToDoEnvironment.objects.create(**validated_data)
 
 class ToDoEnvironmentSerializerId(serializers.Serializer):
   toDo = serializers.CharField(max_length=150)
+  timePub = serializers.IntegerField()
+  timeEnd = serializers.IntegerField()
   id = serializers.IntegerField()
   
 
 
 class ToDoVocationSerializer(serializers.Serializer):
   toDo = serializers.CharField(max_length=150)
-  #id = serializers.IntegerField()
+  timePub = serializers.IntegerField()
+  timeEnd = serializers.IntegerField()
 
   def create(self, validated_data):
     return ToDoVocation.objects.create(**validated_data)
 
 class ToDoVocationSerializerId(serializers.Serializer):
   toDo = serializers.CharField(max_length=150)
+  timePub = serializers.IntegerField()
+  timeEnd = serializers.IntegerField()
   id = serializers.IntegerField()
 
 
 
 class ToDoProsperitySerializer(serializers.Serializer):
   toDo = serializers.CharField(max_length=150)
-  #id = serializers.IntegerField()
+  timePub = serializers.IntegerField()
+  timeEnd = serializers.IntegerField()
 
   def create(self, validated_data):
     return ToDoProsperity.objects.create(**validated_data)
 
 class ToDoProsperitySerializerId(serializers.Serializer):
   toDo = serializers.CharField(max_length=150)
+  timePub = serializers.IntegerField()
+  timeEnd = serializers.IntegerField()
   id = serializers.IntegerField()
 
 
@@ -83,13 +98,16 @@ class ToDoProsperitySerializerId(serializers.Serializer):
 
 class ToDoSelfImprovementSerializer(serializers.Serializer):
   toDo = serializers.CharField(max_length=150)
-  #id = serializers.IntegerField()
+  timePub = serializers.IntegerField()
+  timeEnd = serializers.IntegerField()
 
   def create(self, validated_data):
     return ToDoSelfImprovement.objects.create(**validated_data)
 
 class ToDoSelfImprovementSerializerId(serializers.Serializer):
   toDo = serializers.CharField(max_length=150)
+  timePub = serializers.IntegerField()
+  timeEnd = serializers.IntegerField()
   id = serializers.IntegerField()
 
 
@@ -97,13 +115,16 @@ class ToDoSelfImprovementSerializerId(serializers.Serializer):
 
 class ToDoBrightnessOfLifeSerializer(serializers.Serializer):
   toDo = serializers.CharField(max_length=150)
-  #id = serializers.IntegerField()
+  timePub = serializers.IntegerField()
+  timeEnd = serializers.IntegerField()
 
   def create(self, validated_data):
     return ToDoBrightnessOfLife.objects.create(**validated_data)
 
 class ToDoBrightnessOfLifeSerializerId(serializers.Serializer):
   toDo = serializers.CharField(max_length=150)
+  timePub = serializers.IntegerField()
+  timeEnd = serializers.IntegerField()
   id = serializers.IntegerField()
 
 
@@ -111,11 +132,14 @@ class ToDoBrightnessOfLifeSerializerId(serializers.Serializer):
 
 class ToDoSpiritualitySerializer(serializers.Serializer):
   toDo = serializers.CharField(max_length=150)
-  #id = serializers.IntegerField()
+  timePub = serializers.IntegerField()
+  timeEnd = serializers.IntegerField()
 
   def create(self, validated_data):
     return ToDoSpirituality.objects.create(**validated_data)
 
 class ToDoSpiritualitySerializerId(serializers.Serializer):
   toDo = serializers.CharField(max_length=150)
+  timePub = serializers.IntegerField()
+  timeEnd = serializers.IntegerField()
   id = serializers.IntegerField()

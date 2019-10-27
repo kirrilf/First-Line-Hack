@@ -3,6 +3,8 @@ from rest_framework.views import APIView
 from rest_framework.generics import get_object_or_404
 from .models import *
 from .serializers import *
+import time
+#from .utils import cheackTime
 
 class WheelView(APIView):
 
@@ -20,7 +22,17 @@ class HealthView(APIView):
         #obj = Health.objects.all().prefetch_related('many_set')
         #one_objs = One.objects.all().prefetch_related('many_set')
         obj = ToDoHealth.objects.all()
+
+        for toDo in obj:
+            if toDo.timeEnd <= time.time():
+                obi = Wheel.objects.get(id=1)
+                obi.health = obi.health-1
+                obi.save()
+                toDo.delete()
+
         serializer = ToDoHealthSerializerId(obj, many=True)
+
+        
 
         return Response({"health": serializer.data})
     
@@ -59,6 +71,15 @@ class HealthDelete(APIView):
 class RelationshipsView(APIView):
     def get(self, request):
         obj = ToDoRelationships.objects.all()
+
+        for toDo in obj:
+            if toDo.timeEnd <= time.time():
+                obi = Wheel.objects.get(id=1)
+                obi.relationships = obi.relationships-1
+                obi.save()
+                toDo.delete()
+
+
         serializer = ToDoRelationshipsSerializerId(obj, many=True)
                 
         return Response({"relationships": serializer.data})
@@ -100,6 +121,14 @@ class EnvironmentView(APIView):
     def get(self, request):
 
         obj = ToDoEnvironment.objects.all()
+        for toDo in obj:
+            if toDo.timeEnd <= time.time():
+                obi = Wheel.objects.get(id=1)
+                obi.environment = obi.environment-1
+                obi.save()
+                toDo.delete()
+
+
         serializer = ToDoEnvironmentSerializerId(obj, many=True)
 
         return Response({"environment": serializer.data})
@@ -139,6 +168,15 @@ class EnvironmentDelete(APIView):
 class VocationView(APIView):
     def get(self, request):
         obj = ToDoVocation.objects.all()
+
+        for toDo in obj:
+            if toDo.timeEnd <= time.time():
+                obi = Wheel.objects.get(id=1)
+                obi.vocation = obi.vocation-1
+                obi.save()
+                toDo.delete()
+
+
         serializer = ToDoVocationSerializerId(obj, many=True)
 
         return Response({"vocation": serializer.data})
@@ -183,6 +221,14 @@ class VocationDelete(APIView):
 class ProsperityView(APIView):
     def get(self, request):
         obj = ToDoProsperity.objects.all()
+
+        for toDo in obj:
+            if toDo.timeEnd <= time.time():
+                obi = Wheel.objects.get(id=1)
+                obi.prosperity = obi.prosperity-1
+                obi.save()
+                toDo.delete()
+
         serializer = ToDoProsperitySerializerId(obj, many=True)
 
         return Response({"prosperity": serializer.data})
@@ -221,6 +267,14 @@ class ProsperityDelete(APIView):
 class SelfImprovementView(APIView):
     def get(self, request):
         obj = ToDoSelfImprovement.objects.all()
+
+        for toDo in obj:
+            if toDo.timeEnd <= time.time():
+                obi = Wheel.objects.get(id=1)
+                obi.selfImprovement = obi.selfImprovement-1
+                obi.save()
+                toDo.delete()
+
         serializer = ToDoSelfImprovementSerializerId(obj, many=True)
 
         return Response({"selfImprovement": serializer.data})
@@ -262,6 +316,14 @@ class SelfImprovementDelete(APIView):
 class BrightnessOfLifeView(APIView):
     def get(self, request):
         obj = ToDoBrightnessOfLife.objects.all()
+
+        for toDo in obj:
+            if toDo.timeEnd <= time.time():
+                obi = Wheel.objects.get(id=1)
+                obi.brightnessOfLife = obi.brightnessOfLife-1
+                obi.save()
+                toDo.delete()
+
         serializer = ToDoBrightnessOfLifeSerializerId(obj, many=True)
 
         return Response({"brightnessOfLife": serializer.data})
@@ -299,6 +361,14 @@ class BrightnessOfLifeDelete(APIView):
 class SpiritualityView(APIView):
     def get(self, request): 
         obj = ToDoSpirituality.objects.all()
+
+        for toDo in obj:
+            if toDo.timeEnd <= time.time():
+                obi = Wheel.objects.get(id=1)
+                obi.spirituality = obi.spirituality-1
+                obi.save()
+                toDo.delete()
+
         serializer = ToDoSpiritualitySerializerId(obj, many=True)
 
         return Response({"spirituality": serializer.data})
@@ -310,7 +380,7 @@ class SpiritualityView(APIView):
 
         if serializer.is_valid(raise_exception=True):
             spirituality_saved = serializer.save()
-        return Response({"success": "Health '{}' created successfully".format(spirituality_saved.id)})
+        return Response({"success": "spirituality  '{}' created successfully".format(spirituality_saved.id)})
 
 class SpiritualityDone(APIView):
     

@@ -22,32 +22,47 @@ class Wheel(models.Model):
 
 class ToDoHealth(models.Model):
   toDo = models.CharField(max_length=150, blank = True)
+  timePub = models.IntegerField(blank = True)
+  timeEnd = models.IntegerField(blank = True)
 
 class ToDoRelationships(models.Model):
   toDo = models.CharField(max_length=150, blank = True)
+  timePub = models.IntegerField(blank = True)
+  timeEnd = models.IntegerField(blank = True)
 
 
 class ToDoEnvironment(models.Model):
   toDo = models.CharField(max_length=150, blank = True)
+  timePub = models.IntegerField(blank = True)
+  timeEnd = models.IntegerField(blank = True)
 
 
 class ToDoVocation(models.Model):
   toDo = models.CharField(max_length=150, blank = True)
-
+  timePub = models.IntegerField(blank = True)
+  timeEnd = models.IntegerField(blank = True)
 
 class ToDoProsperity(models.Model):
   toDo = models.CharField(max_length=150, blank = True)
+  timePub = models.IntegerField(blank = True)
+  timeEnd = models.IntegerField(blank = True)
 
 
 class ToDoSelfImprovement(models.Model):
   toDo = models.CharField(max_length=150, blank = True)
+  timePub = models.IntegerField(blank = True)
+  timeEnd = models.IntegerField(blank = True)
 
 
 class ToDoBrightnessOfLife(models.Model):
   toDo = models.CharField(max_length=150, blank = True)
+  timePub = models.IntegerField(blank = True)
+  timeEnd = models.IntegerField(blank = True)
 
 
 class ToDoSpirituality(models.Model):
   toDo = models.CharField(max_length=150, blank = True)
+  timePub = models.IntegerField(blank = True)
+  timeEnd = models.IntegerField(blank = True)
 
 
